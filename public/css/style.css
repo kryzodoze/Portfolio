@@ -21,16 +21,15 @@ body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
   /* We need to add auto to make this work it acts as a fallback if logo isn't there */
-  /* cursor: url("../images/assassins-creed.png"), auto; */
-  cursor: none;
 }
 
-/* Custom Pointer only */
-a,
-button,
-a:hover,
-button:hover {
-  cursor: none;
+.nonSelectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 *::selection {
@@ -134,7 +133,6 @@ header .navbar ul li a:hover {
 /* hamburger icon starts*/
 #menu {
   font-size: 3rem;
-  cursor: none;
   color: rgb(24, 2, 63);
   display: none;
 }
@@ -220,11 +218,10 @@ header .navbar ul li a:hover {
   z-index: 1;
 }
 .home .image img {
-  width: 60%;
+  width: 50%;
   margin-left: 6rem;
   border-radius: 50%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  cursor: none;
 }
 .home .image img:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
@@ -384,7 +381,6 @@ header .navbar ul li a:hover {
   /* Blend mode to create black and white image */
   mix-blend-mode: luminosity;
   transition: 0.3s;
-  cursor: none;
 }
 .about .row .image img:hover {
   mix-blend-mode: normal;
@@ -506,41 +502,43 @@ header .navbar ul li a:hover {
   color: #fff;
   margin-top: 0.5rem;
 }
-.skills .container .col .bar {
-  margin-bottom: 15px;
-  padding: 10px;
+.skillbar {
   border-radius: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   background: rgba(0, 0, 22, 0.9);
   transition: 0.2s;
 }
-.skills .container .col .bar:hover {
+.container .skillbar {
+  margin-bottom: 15px;
+  padding: 10px;
+}
+.skillbar:hover {
   transform: translateX(12px);
   box-shadow: 0 5px 8px rgba(0, 2, 68, 0.4);
 }
-.skills .container .col .bar .info {
+.skillbar .info {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 5px;
 }
-.skills .container .col .bar .info i {
+.skillbar .info i {
   font-size: 2rem;
 }
-.skills .container .col .bar .info span {
+.skillbar .info span {
   font-size: 1.8rem;
   font-weight: 500;
   font-family: "Poppins";
   margin-left: 0.5rem;
 }
-.skills .container .col .bar .line {
+.skillbar .line {
   position: relative;
   width: 100%;
   height: 10px;
   background: rgb(212, 211, 211);
   border-radius: 6px;
 }
-.skills .container .col .bar .line:before {
+.skillbar .line:before {
   content: "";
   position: absolute;
   height: 100%;
@@ -548,61 +546,48 @@ header .navbar ul li a:hover {
   left: 0;
   border-radius: 4px;
 }
-.skills .container .col .bar .html:before {
-  width: 98%;
+
+.skills .container .col .skillbar .unity:before {
+  width: 90%;
   background: #e03d0b;
 }
-.skills .container .col .bar .css:before {
-  width: 95%;
-  background: #2962ff;
-}
-.skills .container .col .bar .javascript:before {
-  width: 90%;
+.skills .container .col .skillbar .babylonjs:before {
+  width: 80%;
   background: #ffd900;
 }
-.skills .container .col .bar .bootstrap:before {
-  width: 85%;
-  background: #3d10dd;
-}
-.skills .container .col .bar .php:before {
+.skills .container .col .skillbar .virtualreality:before {
   width: 80%;
   background: #8054c7;
 }
-.skills .container .col .bar .mysqli:before {
-  width: 82%;
-  background: #f38b03;
-}
-.skills .container .col .bar .reactjs:before {
-  width: 70%;
+.skills .container .col .skillbar .csharp:before {
+  width: 80%;
   background: #2962ff;
 }
-.skills .container .col .bar .mongo:before {
-  width: 90%;
-  background: #ce0505;
-}
-.skills .container .col .bar .express:before {
-  width: 90%;
+.skills .container .col .skillbar .htmlCss:before {
+  width: 70%;
   background: #f7d203;
 }
-.skills .container .col .bar .mongoose:before {
-  width: 85%;
-  background: #2fdf7e;
+
+
+.skills .container .col .skillbar .threejs:before {
+  width: 90%;
+  background: #2962ff;
 }
-.skills .container .col .bar .nodejs:before {
-  width: 82%;
-  background: #298521;
+.skills .container .col .skillbar .webxr:before {
+  width: 70%;
+  background: #3d10dd;
 }
-.skills .container .col .bar .vcs:before {
-  width: 88%;
-  background: #f14e32;
+.skills .container .col .skillbar .augmentedreality:before {
+  width: 60%;
+  background: #f38b03;
 }
-.skills .container .col .bar .sass:before {
-  width: 96%;
-  background: #1771e7;
+.skills .container .col .skillbar .javascript:before {
+  width: 80%;
+  background: hsl(147, 95%, 41%);
 }
-.skills .container .col .bar .heroku:before {
-  width: 75%;
-  background: #ffae00;
+.skills .container .col .skillbar .reactjs:before {
+  width: 40%;
+  background: #ce0505;
 }
 
 /* skills media queries starts*/
@@ -620,11 +605,11 @@ header .navbar ul li a:hover {
     margin-top: 5px;
     width: 100%;
   }
-  .skills .container .col .bar {
+  .col .skillbar {
     margin-bottom: 10px;
     padding: 10px;
   }
-  .skills .container .col .bar .line {
+  .col .skillbar .line {
     height: 0.8rem;
   }
 }
@@ -1044,163 +1029,6 @@ header .navbar ul li a:hover {
 /* experience media queries ends */
 /* experience section ends */
 
-/* contact section starts */
-.contact {
-  background: #e5ecfb;
-  min-height: 60vh;
-}
-.contact .container {
-  max-width: 1050px;
-  width: 100%;
-  background: #fff;
-  border-radius: 1.5rem;
-  margin: 2rem 5rem;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-}
-.contact .container .content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2.5rem 2rem;
-}
-.contact .content .image-box {
-  max-width: 60%;
-  margin-left: 4rem;
-}
-.contact .content .image-box img {
-  width: 100%;
-  height: 40rem;
-  position: relative;
-}
-.contact .content form {
-  width: 45%;
-  margin-right: 3.5rem;
-}
-form .form-group {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.form-group .field {
-  height: 50px;
-  display: flex;
-  position: relative;
-  margin: 1rem;
-  width: 100%;
-}
-form i {
-  position: absolute;
-  top: 50%;
-  left: 18px;
-  color: rgb(51, 51, 51);
-  font-size: 17px;
-  pointer-events: none;
-  transform: translateY(-50%);
-}
-form .field input,
-form .message textarea {
-  width: 100%;
-  height: 100%;
-  outline: none;
-  padding: 0 16px 0 48px;
-  font-size: 16px;
-  font-family: "Poppins", sans-serif;
-  border-radius: 5px;
-  border: 1px solid rgb(51, 51, 51);
-  background: #e5ecfb;
-}
-.field input::placeholder,
-.message textarea::placeholder {
-  color: rgb(51, 51, 51);
-}
-.field input:focus,
-.message textarea:focus {
-  padding-left: 47px;
-  border: 2px solid rgb(115, 3, 167);
-}
-.field input:focus ~ i,
-.message textarea:focus ~ i {
-  color: rgb(115, 3, 167);
-}
-form .message {
-  position: relative;
-  margin: 1rem;
-  width: 100%;
-}
-form .message i {
-  top: 25px;
-  font-size: 20px;
-  left: 15px;
-}
-form .message textarea {
-  min-height: 130px;
-  max-height: 230px;
-  max-width: 100%;
-  min-width: 100%;
-  padding: 12px 20px 0 48px;
-}
-form .message textarea::-webkit-scrollbar {
-  width: 0px;
-}
-form .button-area {
-  display: flex;
-  float: right;
-  flex-direction: row-reverse;
-}
-.button-area button {
-  color: #fff;
-  border: none;
-  outline: none;
-  font-size: 1.8rem;
-  cursor: none;
-  border-radius: 5px;
-  padding: 13px 25px;
-  background: #2506ad;
-  box-shadow: 0px 5px 10px rgba(48, 68, 247, 0.6);
-  transition: 0.3s ease;
-  font-family: "Nunito", sans-serif;
-}
-.button-area button:hover {
-  background: #421cecf5;
-}
-.button-area span {
-  font-size: 17px;
-  padding: 1rem;
-  display: none;
-}
-.button-area button i {
-  position: relative;
-  top: 6px;
-  left: 2px;
-  font-size: 1.5rem;
-  transition: 0.3s;
-  color: #fff;
-}
-.button-area button:hover i {
-  left: 8px;
-}
-/* contact section media queries starts */
-@media (max-width: 900px) {
-  .contact {
-    min-height: 70vh;
-  }
-  .contact .container {
-    margin: 3rem 0 2rem 0;
-  }
-  .contact .container .content {
-    padding: 18px 12px;
-  }
-  .contact .content .image-box {
-    display: none;
-  }
-  .contact .content form {
-    width: 100%;
-    margin-right: 2rem;
-  }
-}
-/* contact section media queries ends */
-/* contact section ends */
-
 /* footer section starts */
 .footer {
   min-height: auto;
@@ -1337,73 +1165,3 @@ form .button-area {
   top: calc(100% - 12rem);
 }
 /* scroll top ends */
-
-/* Cursoe Code starts */
-.cursor {
-  /* Position fixed as it allows the div to be fixed in screen while scrolling */
-  position: fixed;
-  z-index: 1500;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #ff7b00;
-  border-radius: 50%;
-  /* so cursor never changes */
-  pointer-events: none;
-  /* transition to create a lag */
-  transition-duration: 200ms;
-  transition-timing-function: ease-out;
-  animation: cursorAnimation1 0.5s infinite alternate;
-  transform: translate(-50%, -50%);
-}
-
-.cursor::after {
-  content: "";
-  border-top: 8px solid #7303a7;
-  border-left: 8px solid #ce0505;
-  border-right: 8px solid #f7d203;
-  border-bottom: 8px solid #298521;
-  opacity: 0.8;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  border-radius: 50%;
-  top: -9px;
-  left: -9px;
-  animation: cursorAnimation2 0.5s infinite alternate;
-}
-
-@keyframes cursorAnimation1 {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(0.7);
-  }
-}
-
-@keyframes cursorAnimation2 {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(0.4);
-  }
-}
-
-@keyframes cursorAnimation3 {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(3);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0;
-  }
-}
-
-.expand {
-  animation: cursorAnimation3 0.5s forwards;
-  border: 1px solid red;
-}

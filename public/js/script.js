@@ -45,25 +45,14 @@ $(document).ready(function () {
   });
 });
 
-//If focus if off the tab (visibility State)
-document.addEventListener("visibilitychange", function () {
-  if (document.visibilityState === "visible") {
-    document.title = "Portfolio | Anunay Anand";
-    $("#favicon").attr("href", "/images/favicon.png");
-  } else {
-    document.title = "Come Back To Portfolio";
-    $("#favicon").attr("href", "/images/favhand.png");
-  }
-});
 
 // Effects or texts from Typed.js Api
 let typed = new Typed(".typing-text", {
   strings: [
-    "desining",
-    "web development",
-    "backend development",
-    "full stack development",
-    "Server/Client side scripting",
+    "3D websites",
+    "games",
+    "Unity plug-ins",
+    "metaverse stuff"
   ],
   loop: true,
   typeSpeed: 50,
@@ -130,7 +119,3 @@ srtop.reveal(".work .box", { interval: 200 });
 /* SCROLL EXPERIENCE */
 srtop.reveal(".experience .timeline", { delay: 400 });
 srtop.reveal(".experience .timeline .container", { interval: 400 });
-
-/* SCROLL CONTACT */
-srtop.reveal(".contact .container", { delay: 400 });
-srtop.reveal(".contact .container .form-group", { delay: 400 });

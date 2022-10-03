@@ -6,20 +6,25 @@
     <h2 class="heading"><i class="fas fa-laptop-code"></i> Projects <span>Made</span></h2>
 
     <div class="box-container">
-        <% for(let project of projects) { %>
-        <div class="box tilt" data-aos="fade-in" data-aos-duration="1000" data-aos-offset="200" data-tilt>
-            <img draggable="false" src="<%=project.image%>" alt="Project Image" />
+        <% for(let i = 0; i < projects.length; i++) { %>
+        <div class="box tilt">
+            <img draggable="false" src="<%=projects[i].image%>" alt="Project Image" />
             <div class="content">
                 <div class="tag">
-                    <h3><%=project.name%> </h3>
+                    <h3><%=projects[i].name%> </h3>
                 </div>
                 <div class="desc">
-                    <p><%=project.desc%> </p>
-                    <div class="btns">
-                        <a href="<%=project.links.view%>" class="btn" target="_blank"><i class="fas fa-eye"></i>
-                            View</a>
-                        <a href="<%=project.links.code%>" class="btn" target="_blank">Code <i
-                                class="fas fa-code"></i></a>
+                    <p style="text-transform: none"><%=projects[i].desc%> </p>
+                    <div class="technology">
+                        <% for(let j = 0; j < projects[i].tech.length; j++) { %>
+                        <div class="skillbar" style="transform: scale(<%=projects[i].techScale%>);">
+                            <div class="info">
+                                <span style="color:white;"><%=projects[i].tech[j].name%></span>
+                                <span style="color:white;"><%=projects[i].tech[j].value%></span>
+                            </div>
+                            <div class="line" style="width: <%=projects[i].tech[j].value%>; background: <%=projects[i].tech[j].color%>;"></div>
+                        </div>
+                        <% } %>
                     </div>
                 </div>
             </div>

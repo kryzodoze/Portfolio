@@ -6,29 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords"
-        content="Anunays Code, portfolio, frontend, personal portfolio, portfolio design, portfolio website, personal" />
+        content="freelance software engineer, freelancer, three.js, babylon.js, unity3d, chicago, virtual reality, augmented reality, Code, portfolio, frontend, personal portfolio, portfolio design, portfolio website, personal" />
     <meta name="description"
-        content="Welcome to Anunay's Portfolio. A passionate Full Stack Web Developer. An eager learner who is intrigued by things around him" />
+        content="Welcome to the portfolio of Keith Thomas. A software engineer focused on 3D/AR/VR." />
     <!-- Custom home Stylesheet -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- StyleSheet related to Project Section-->
     <link rel="stylesheet" href="/css/project.css">
-    <!-- Stylesheet related to Experience Section-->
-    <link rel="stylesheet" href="/css/experience.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
         integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <!--Data Aos-->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- Favicon -->
-    <!--If tab loses focus or visibility changes the favicon href is toggled-->
-    <link id='favicon' rel="shortcut icon" href="/images/favicon.png" type="image/x-png">
-    <title>Portfolio | Anunay Anand</title>
+
+    <title>Keith Thomas | Portfolio</title>
 </head>
 
 <body oncontextmenu="return false">
-    <!-- Cursor Code -->
-    <div class="cursor"></div>
     <!-- Navbar -->
     <%-include('../partials/header.ejs')%>
     <%- body %>
@@ -60,27 +54,6 @@
     <!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
     <!-- Developer Main Script file -->
     <script src="/js/script.js"></script>
-    <script>
-        {
-            /* Cursor Code */
-            const cursor = document.querySelector(".cursor");
-            // Adding style to the cursor location everytime it moves (faking cursor)
-            document.addEventListener("mousemove", (event) => {
-                cursor.setAttribute(
-                    "style",
-                    `top: ${event.pageY - scrollY - 10}px ; left: ${event.pageX - 10}px`
-                );
-            });
-
-            document.addEventListener("click", () => {
-                cursor.classList.add("expand");
-
-                setTimeout(() => {
-                    cursor.classList.remove("expand");
-                }, 500);
-            });
-        }
-    </script>
 </body>
 
 </html>

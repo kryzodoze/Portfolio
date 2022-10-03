@@ -26,6 +26,7 @@ app.get("/", async (req, res) => {
     const data = await JSON.stringify(userProjects);
     //Parse it into JavaScript Object
     const projects = await JSON.parse(data);
+    console.log(projects)
     res.render("homepage", { projects });
   } catch (e) {
     console.log(e);
